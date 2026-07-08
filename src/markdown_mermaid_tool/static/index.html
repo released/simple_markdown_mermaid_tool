@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Markdown Mermaid Tool</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/vendor/marked.min.js"></script>
+  <script>
+    window.marked || document.write('<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"><\/script>');
+  </script>
+  <script src="/static/vendor/mermaid.min.js"></script>
+  <script>
+    window.mermaid || document.write('<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"><\/script>');
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="path-grid">
+      <label class="field field-wide">
+        <span>MD Path</span>
+        <input id="mdPath" type="text" spellcheck="false">
+      </label>
+      <button id="pickMd" type="button">Browse</button>
+      <button id="loadMd" type="button">Load MD</button>
+
+      <label class="field field-wide">
+        <span>INI Path</span>
+        <input id="iniPath" type="text" spellcheck="false">
+      </label>
+      <button id="pickIniOpen" type="button">Browse</button>
+      <button id="loadIni" type="button">Load INI</button>
+      <button id="pickIniSave" type="button">Save As</button>
+      <button id="saveIni" type="button">Save INI</button>
+    </div>
+    <div class="generate-row">
+      <label class="field name-field">
+        <span>Name</span>
+        <input id="outputName" type="text" spellcheck="false">
+      </label>
+      <label class="field output-field">
+        <span>Output Dir</span>
+        <input id="outputDir" type="text" spellcheck="false">
+      </label>
+      <button id="pickOutputDir" type="button">Browse</button>
+      <label class="check"><input id="fmtHtml" type="checkbox">HTML</label>
+      <label class="check"><input id="fmtPdf" type="checkbox">PDF</label>
+      <label class="check"><input id="fmtPng" type="checkbox">PNG</label>
+      <label class="check"><input id="fmtJpg" type="checkbox">JPG</label>
+      <button id="generate" class="primary" type="button">Generate</button>
+    </div>
+  </header>
+
+  <main class="split">
+    <section class="pane">
+      <div class="pane-title">Markdown</div>
+      <textarea id="editor" spellcheck="false"></textarea>
+    </section>
+    <section class="pane">
+      <div class="pane-title">Preview</div>
+      <article id="preview" class="markdown-body"></article>
+    </section>
+  </main>
+
+  <footer class="statusbar">
+    <div id="status">Ready</div>
+    <pre id="log"></pre>
+  </footer>
+
+  <script src="/static/renderer.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

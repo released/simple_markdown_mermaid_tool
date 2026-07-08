@@ -1,0 +1,129 @@
+:root {
+  --line: #d6dde5;
+  --text: #1c242c;
+  --muted: #5d6a75;
+  --code-bg: #eef2f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: #ffffff;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+.markdown-body {
+  width: fit-content;
+  min-width: 1080px;
+  max-width: none;
+  margin: 0 auto;
+  padding: 32px 44px;
+  overflow-wrap: anywhere;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+  line-height: 1.25;
+  margin: 1.1em 0 0.45em;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 19px;
+}
+
+.markdown-body p,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body table,
+.markdown-body pre {
+  margin: 0 0 14px;
+}
+
+.markdown-body pre {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px;
+  overflow: auto;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Cascadia Mono", monospace;
+  background: var(--code-bg);
+  border-radius: 4px;
+  padding: 1px 4px;
+}
+
+.markdown-body pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid var(--line);
+  padding: 6px 8px;
+  text-align: left;
+}
+
+.markdown-body th {
+  background: #edf2f5;
+}
+
+.markdown-body blockquote {
+  border-left: 4px solid #9aa8b5;
+  margin: 0 0 14px;
+  padding: 4px 12px;
+  color: var(--muted);
+  background: #f8fafb;
+}
+
+.markdown-body .mermaid {
+  margin: 12px 0 18px;
+  overflow: visible;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.render-error {
+  border: 1px solid #e6a1ad;
+  background: #fff4f6;
+  color: #9b1c31;
+  padding: 10px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+}
+
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  .markdown-body {
+    max-width: none;
+    padding: 32px 44px;
+  }
+}
