@@ -1,5 +1,10 @@
 # Simple Markdown Mermaid Tool
 
+## Safe clean
+
+`scripts/clean_python.bat` removes allowlisted compiler/PyInstaller work files and .pyc/.pyo inside known __pycache__ folders. It never recursively purges build/obj or caches: EXE/INI/DLL/log/data/unknown files remain even there, and only empty directories are removed. `/?`, `-h` and `--help` do not delete anything. Codex verifies this automatically when creating/changing clean scripts.
+
+
 Local Markdown/Mermaid editor with live preview and export.
 
 ## Features
