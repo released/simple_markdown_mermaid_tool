@@ -5,6 +5,9 @@ param(
 $ErrorActionPreference = "Stop"
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 $exeName = "MarkdownMermaidTool"
+$workPath = Join-Path $root "build\obj\pyinstaller"
+$specPath = Join-Path $workPath "spec"
+$outputPath = Join-Path $root "build"
 
 if ($CloseRunningTool) {
     $proc = Get-Process -Name $exeName -ErrorAction SilentlyContinue
@@ -17,18 +20,26 @@ if ($CloseRunningTool) {
 
 Push-Location $root
 try {
-    pyinstaller `
+    New-Item -ItemType Directory -Force -Path $specPath | Out-Null
+    python -m PyInstaller `
         --noconfirm `
-        --clean `
         --onefile `
         --noconsole `
+        --workpath (Join-Path $workPath "work") `
+        --specpath $specPath `
+        --distpath $outputPath `
         --name $exeName `
-        --add-data "src\markdown_mermaid_tool\static;markdown_mermaid_tool\static" `
-        "src\main.py"
+        --add-data "$(Join-Path $root 'src\markdown_mermaid_tool\static');markdown_mermaid_tool\static" `
+        (Join-Path $root "src\main.py")
+    if ($LASTEXITCODE -ne 0) {
+        throw "PyInstaller failed with exit code $LASTEXITCODE."
+    }
 
-    New-Item -ItemType Directory -Force -Path "build" | Out-Null
-    Copy-Item -Force "dist\$exeName.exe" "build\$exeName.exe"
-    Write-Host "Built: $(Join-Path $root "build\$exeName.exe")"
+    $exePath = Join-Path $outputPath "$exeName.exe"
+    if (-not (Test-Path -LiteralPath $exePath -PathType Leaf)) {
+        throw "PyInstaller completed without the expected executable: $exePath"
+    }
+    Write-Host "Built: $exePath"
 } finally {
     Pop-Location
 }

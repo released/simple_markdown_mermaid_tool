@@ -2,6 +2,20 @@
 
 ## Current State
 
+### Layout audit 2026-10-20
+
+- Selected as the workspace Python directory-layout golden sample.
+- PyInstaller work/spec output moved to `build/obj/pyinstaller`; the usable EXE
+  stays at `build/MarkdownMermaidTool.exe`. Old outputs were not purged.
+- Build: `scripts/build_exe.ps1 -CloseRunningTool $false` PASS. Existing
+  `pkg_resources` deprecation warning noted; dependencies were not upgraded.
+- `PC_TOOL_TEST_EXE=1; python -m unittest discover -s tests -v`: PASS, 2 tests,
+  source and isolated packaged-EXE HTTP/static resource smoke.
+- `scripts/clean_python.bat`: isolated sentinel/repeat-clean and actual cleanup
+  PASS; all 6 protected existing build files unchanged by SHA-256.
+- Browser visual/DPI and PDF/PNG/JPG exports: NOT RUN in this folder-only audit.
+- Shared batch/publication status: `#READ_ME_FIRST#/PROJECT_LAYOUT_MIGRATION.md`.
+
 The tool is implemented as a local Python HTTP server with a static browser UI.
 
 Important files:

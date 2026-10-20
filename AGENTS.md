@@ -25,6 +25,12 @@ This project builds a standalone local Markdown/Mermaid preview and export tool.
 
 ## Verification Expectations
 
+- Workspace directory-layout reference: `#READ_ME_FIRST#/PROJECT_LAYOUT.md`.
+- This project is the Python directory-layout golden sample, not a dependency/template requirement for every Python tool.
+- PyInstaller work/spec files belong under `build/obj/pyinstaller`; the deliverable stays at `build/MarkdownMermaidTool.exe`.
+- Run `scripts/clean_python.bat` only for compiler/cache cleanup; preserve EXE, INI, outputs, logs, and unknown files.
+- Run `python -m unittest discover -s tests -v` for source layout/resource smoke. After building the EXE, set `PC_TOOL_TEST_EXE=1` to include the isolated packaged-resource HTTP test; the default skip is not an EXE verification result.
+
 Run syntax checks:
 
 ```powershell

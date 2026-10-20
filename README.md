@@ -42,6 +42,10 @@ Then click `Generate`. The default output directory is `output`.
 
 ## Optional Build
 
+This project is the workspace Python **directory-layout** reference. Its browser
+UI and standard-library implementation are not mandatory for other Python tools.
+See workspace `#READ_ME_FIRST#/PROJECT_LAYOUT.md` for the shared convention.
+
 PyInstaller is used only for packaging. The source app itself uses the Python standard library.
 
 ```powershell
@@ -53,6 +57,19 @@ Output:
 ```text
 build\MarkdownMermaidTool.exe
 ```
+
+Packaging intermediates and generated spec files are under
+`build\obj\pyinstaller`, not the repository root. Existing older `dist`/build
+outputs are not silently removed by this layout change.
+
+## Clean
+
+```bat
+scripts\clean_python.bat
+```
+
+Removes compiler/cache intermediates only. The executable, INI files, logs,
+exported reports, unknown delivery files, and existing `dist` outputs are retained.
 
 ## Vendor JavaScript
 
