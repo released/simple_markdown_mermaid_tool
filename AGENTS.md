@@ -25,6 +25,8 @@ This project builds a standalone local Markdown/Mermaid preview and export tool.
 
 ## Verification Expectations
 
+- The Python clean also removes the explicitly named project-root `__pycache__`; do not scan private output trees for arbitrary folders to purge.
+
 - Workspace directory-layout reference: `#READ_ME_FIRST#/PROJECT_LAYOUT.md`.
 - This project is the Python directory-layout golden sample, not a dependency/template requirement for every Python tool.
 - PyInstaller work/spec files belong under `build/obj/pyinstaller`; the deliverable stays at `build/MarkdownMermaidTool.exe`.

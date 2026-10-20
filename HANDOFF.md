@@ -2,6 +2,12 @@
 
 ## Current State
 
+### Root-cache clean follow-up (2026-10-20)
+
+- Added the exact root `__pycache__` to the existing checked cache targets; unknown build/user-output folders remain protected.
+- PASS on resume: actual clean, root/source cache removal, 9 protected build sentinels plus source, idempotence, and junction rejection before deletion. 6 actual protected build files retained unchanged; source and isolated frozen-EXE HTTP/resource tests both PASS.
+- Publication evidence is recorded in workspace `PROJECT_LAYOUT_MIGRATION.md`.
+
 ### Layout audit 2026-10-20
 
 - Selected as the workspace Python directory-layout golden sample.
