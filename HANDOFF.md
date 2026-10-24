@@ -1,5 +1,29 @@
 # HANDOFF.md
 
+## Verified EXE slimming 2026-10-25
+
+- Exact comparable EXE 12902984 -> 12875387 bytes (27597 saved).
+- Formal SHA: 0B53FA841A7BD75ADA4F7096289021488E554B87AF8B89D320BE253F9B1A3928.
+- Packaging source spec keeps the existing one-file/windowless format and explicitly
+  disables UPX. All archive payloads match the baseline except the omitted Tcl test
+  harness; base_library.zip differs only in member order, all 155 payloads equal.
+- Canonical build PASS. Owned frozen-EXE checks PASS: four actual native pickers
+  opened/canceled, local HTTP/assets, synthetic Markdown/INI save+reload and equal
+  exported HTML SHA. Seven alternating performance pairs PASS; raw JSON retained.
+- Build-close block itself tested in graceful and forced scenarios: exact target
+  closed, another same-named copy in a different directory remained alive.
+- Initial clean checker misclassified known PYZ compiler output; log retained.
+  Cleanup is now narrower, with exact work-path/name recognition. Final actual
+  clean removed one base-library compiler ZIP after 11 earlier intermediates;
+  8 protected actual files/source spec/INI hashes unchanged. 28 sentinels, cache,
+  help/idempotence and both native/source junction rejection PASS.
+- EXE remains ignored/untracked by existing repository policy; never force-add it.
+  Commit/remote outcome is in shared EXE_SLIMMING_PROGRESS.md.
+- NOT RUN: browser visual/DPI, clean-PC or PDF/PNG/JPG rerun; their code/assets/runtime
+  payloads are unchanged. A long nested extraction fixture failed; short owned
+  temporary fixtures succeeded. No arbitrary long-path support claim is made.
+
+
 ## File-only Python clean follow-up (2026-10-21)
 
 - Changed scripts/clean.ps1, scripts/clean_python.bat and new companion clean_intermediates.ps1. Final cross-profile review found the earlier cleaner still purged whole build/obj/cache folders; replaced it with file allowlists and empty-directory-only removal.

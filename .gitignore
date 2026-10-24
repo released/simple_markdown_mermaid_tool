@@ -5,6 +5,8 @@ __pycache__/
 build/
 dist/
 *.spec
+!scripts/build/
+!scripts/build/MarkdownMermaidTool.spec
 output/
 
 markdown_mermaid_tool.ini

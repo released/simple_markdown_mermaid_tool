@@ -37,12 +37,19 @@ $targets = @(Get-ChildItem -LiteralPath $projectRoot -Filter '*.vcxproj' -File |
     ForEach-Object { $_.BaseName })
 $objectRoot = Join-Path $build 'obj'
 $objectPrefix = $objectRoot + '\'
+$pyInstallerWork = Join-Path $objectRoot 'pyinstaller\work\MarkdownMermaidTool'
 $removed = 0
 foreach ($file in $files) {
     $inObjects = $file.FullName.StartsWith($objectPrefix, [StringComparison]::OrdinalIgnoreCase)
     $extension = $file.Extension.ToLowerInvariant()
     $known = $extension -in $extensions
-    if ($inObjects -and $extension -in @('.pyc', '.pyo', '.toc', '.pyz', '.pkg')) { $known = $true }
+    if ($inObjects -and $extension -in @('.pyc', '.pyo')) { $known = $true }
+    # Package-like suffixes can also be user deliveries. Recognize only the
+    # exact internal artifacts of this tool's configured PyInstaller work tree.
+    if ([string]::Equals($file.DirectoryName, $pyInstallerWork, [StringComparison]::OrdinalIgnoreCase) -and
+        ($file.Name -match '^(Analysis|PYZ|PKG|EXE|COLLECT)-[0-9]+\.toc$' -or
+         $file.Name -match '^PYZ-[0-9]+\.pyz$' -or
+         $file.Name -in @('MarkdownMermaidTool.pkg', 'base_library.zip'))) { $known = $true }
     if ($extension -in @('.lib', '.exp')) {
         $known = $inObjects -or ($file.DirectoryName -eq $build -and $file.BaseName -in $targets)
     }

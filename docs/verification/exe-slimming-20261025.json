@@ -1,0 +1,340 @@
+{
+  "Date": "2026-10-25",
+  "Python": "3.13.0",
+  "PyInstaller": "6.13.0",
+  "OriginalExeBytes": 12903348,
+  "ComparableBaselineBytes": 12902984,
+  "FormalBytes": 12875387,
+  "FormalSHA256": "0B53FA841A7BD75ADA4F7096289021488E554B87AF8B89D320BE253F9B1A3928",
+  "ArchiveComparison": {
+    "BeforeEntries": 1000,
+    "AfterEntries": 999,
+    "Removed": [
+      "tcl8\\8.5\\tcltest-2.5.7.tm"
+    ],
+    "Added": [],
+    "Changed": [
+      "base_library.zip"
+    ],
+    "RemovedEntries": {
+      "tcl8\\8.5\\tcltest-2.5.7.tm": [
+        8981127,
+        28007,
+        105075,
+        1,
+        "b"
+      ]
+    }
+  },
+  "BaseLibraryZip": {
+    "BeforeMembers": 155,
+    "AfterMembers": 155,
+    "Added": [],
+    "Removed": [],
+    "ChangedPayload": [],
+    "SameOrder": false,
+    "OtherMetadataEqual": true
+  },
+  "Evidence": {
+    "Samples": 7,
+    "BaselineSHA256": "C87FA3AE849D42D3BB464F403FE56B21ED376433D1D10460A2FFBAE0A56CA53D",
+    "FormalSHA256": "0B53FA841A7BD75ADA4F7096289021488E554B87AF8B89D320BE253F9B1A3928",
+    "Limits": {
+      "StartupMs": {
+        "AllowedDelta": 1908,
+        "Median": 5895.9816,
+        "MAD": 636.0769
+      },
+      "PeakBytes": {
+        "AllowedDelta": 1973862,
+        "Median": 39477248,
+        "MAD": 61440
+      },
+      "CpuMs": {
+        "AllowedDelta": 309,
+        "Median": 3093.75,
+        "MAD": 93.75
+      },
+      "WorkflowMs": {
+        "AllowedDelta": 155,
+        "Median": 1178.3109,
+        "MAD": 51.81749999999988
+      }
+    },
+    "Checks": [
+      {
+        "Metric": "StartupMs",
+        "BaselineMedian": 6734.475,
+        "CandidateMedian": 6687.9609,
+        "Limit": 8642.475,
+        "Pass": true
+      },
+      {
+        "Metric": "PeakBytes",
+        "BaselineMedian": 39485440,
+        "CandidateMedian": 39456768,
+        "Limit": 41459302,
+        "Pass": true
+      },
+      {
+        "Metric": "CpuMs",
+        "BaselineMedian": 2718.75,
+        "CandidateMedian": 2781.25,
+        "Limit": 3027.75,
+        "Pass": true
+      },
+      {
+        "Metric": "WorkflowMs",
+        "BaselineMedian": 948.0713000000001,
+        "CandidateMedian": 951.2688,
+        "Limit": 1103.0713,
+        "Pass": true
+      }
+    ],
+    "Calibration": [
+      {
+        "Variant": "baseline",
+        "StartupMs": 3685.8075000000003,
+        "WorkflowMs": 1126.4934,
+        "CpuMs": 3093.75,
+        "PeakBytes": 39415808,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "baseline",
+        "StartupMs": 4914.4211000000005,
+        "WorkflowMs": 1466.5359,
+        "CpuMs": 3281.25,
+        "PeakBytes": 38973440,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "baseline",
+        "StartupMs": 5584.747,
+        "WorkflowMs": 1172.5704,
+        "CpuMs": 3000,
+        "PeakBytes": 39342080,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "baseline",
+        "StartupMs": 5948.8589,
+        "WorkflowMs": 1178.3109,
+        "CpuMs": 3031.25,
+        "PeakBytes": 39440384,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "baseline",
+        "StartupMs": 5895.9816,
+        "WorkflowMs": 1194.9453,
+        "CpuMs": 3093.75,
+        "PeakBytes": 39477248,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "baseline",
+        "StartupMs": 5259.9047,
+        "WorkflowMs": 872.8652000000001,
+        "CpuMs": 2859.375,
+        "PeakBytes": 39522304,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "baseline",
+        "StartupMs": 6225.242200000001,
+        "WorkflowMs": 1151.9798,
+        "CpuMs": 3187.5,
+        "PeakBytes": 39505920,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      }
+    ],
+    "Baseline": [
+      {
+        "Variant": "baseline",
+        "StartupMs": 5914.337,
+        "WorkflowMs": 953.3257000000001,
+        "CpuMs": 2718.75,
+        "PeakBytes": 39428096,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "baseline",
+        "StartupMs": 6706.4519,
+        "WorkflowMs": 898.7095,
+        "CpuMs": 2750,
+        "PeakBytes": 39456768,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "baseline",
+        "StartupMs": 6426.6140000000005,
+        "WorkflowMs": 864.6276,
+        "CpuMs": 2750,
+        "PeakBytes": 39485440,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "baseline",
+        "StartupMs": 6969.7642000000005,
+        "WorkflowMs": 953.3429000000001,
+        "CpuMs": 2703.125,
+        "PeakBytes": 39579648,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "baseline",
+        "StartupMs": 6891.2729,
+        "WorkflowMs": 948.0713000000001,
+        "CpuMs": 2703.125,
+        "PeakBytes": 39403520,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "baseline",
+        "StartupMs": 6635.219700000001,
+        "WorkflowMs": 897.2731,
+        "CpuMs": 2703.125,
+        "PeakBytes": 39411712,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "baseline",
+        "StartupMs": 6734.475,
+        "WorkflowMs": 913.5252,
+        "CpuMs": 2718.75,
+        "PeakBytes": 39620608,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      }
+    ],
+    "Candidate": [
+      {
+        "Variant": "candidate",
+        "StartupMs": 6268.1742,
+        "WorkflowMs": 914.3726,
+        "CpuMs": 2703.125,
+        "PeakBytes": 39481344,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "candidate",
+        "StartupMs": 6773.5396,
+        "WorkflowMs": 951.2688,
+        "CpuMs": 2875,
+        "PeakBytes": 39456768,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "candidate",
+        "StartupMs": 5971.221500000001,
+        "WorkflowMs": 1024.9918,
+        "CpuMs": 2765.625,
+        "PeakBytes": 39362560,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "candidate",
+        "StartupMs": 6132.2847,
+        "WorkflowMs": 1134.0198,
+        "CpuMs": 3078.125,
+        "PeakBytes": 39485440,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "candidate",
+        "StartupMs": 5998.3739000000005,
+        "WorkflowMs": 884.1219000000001,
+        "CpuMs": 2734.375,
+        "PeakBytes": 39297024,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "candidate",
+        "StartupMs": 6997.4421,
+        "WorkflowMs": 927.1486,
+        "CpuMs": 2718.75,
+        "PeakBytes": 39436288,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      },
+      {
+        "Variant": "candidate",
+        "StartupMs": 6687.9609,
+        "WorkflowMs": 925.398,
+        "CpuMs": 2781.25,
+        "PeakBytes": 39428096,
+        "HtmlSHA256": "",
+        "NativePickers": 0
+      }
+    ],
+    "FunctionalBaseline": {
+      "Variant": "baseline",
+      "StartupMs": 5130.6419000000005,
+      "WorkflowMs": 1172.3984,
+      "CpuMs": 3140.625,
+      "PeakBytes": 39354368,
+      "HtmlSHA256": "48727911FA443A5CF62FA4B42CBA1ECBECEBDC9249AD6EE70273ED04D054F4F7",
+      "NativePickers": 4
+    },
+    "FunctionalCandidate": {
+      "Variant": "candidate",
+      "StartupMs": 4921.4928,
+      "WorkflowMs": 890.5577000000001,
+      "CpuMs": 2812.5,
+      "PeakBytes": 39464960,
+      "HtmlSHA256": "48727911FA443A5CF62FA4B42CBA1ECBECEBDC9249AD6EE70273ED04D054F4F7",
+      "NativePickers": 4
+    },
+    "Scope": "Owned loopback listener first HTTP response (includes ownership-probe overhead), 50 HTTP state requests, parent+child CPU/summed peaks; four native pickers canceled; no external browser, personal INI or remote network"
+  },
+  "ExactTargetClosure": [
+    {
+      "Mode": "graceful",
+      "ExactTargetClosed": true,
+      "ForeignSameNamedCopyPreserved": true,
+      "TargetExitCode": 0
+    },
+    {
+      "Mode": "forced",
+      "ExactTargetClosed": true,
+      "ForeignSameNamedCopyPreserved": true,
+      "TargetExitCode": -1
+    }
+  ],
+  "ActualClean": {
+    "EarlierCompilerFilesRemoved": 11,
+    "FinalCompilerFilesRemoved": 1,
+    "ProtectedActualFilesUnchanged": 8,
+    "ProtectedFixtureFiles": 28,
+    "RootAndSourceCachePreservation": true,
+    "NativeAndSourceJunctionRejection": true,
+    "SourceSpecPreserved": true
+  },
+  "InitialAuditFailure": "The first preservation classifier treated known PyInstaller PYZ compiler output as protected. Original log retained; cleaner scope narrowed and checker now recognizes exact named work artifacts only. No EXE/INI/data loss.",
+  "NotRun": [
+    "Physical browser visual/DPI inspection",
+    "PDF/PNG/JPG export rerun; unchanged payload/code evidence reused",
+    "Clean-PC installation",
+    "Arbitrary unsupported long extraction paths"
+  ],
+  "RootIniHashesUnchanged": true
+}

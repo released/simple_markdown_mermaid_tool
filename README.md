@@ -1,5 +1,15 @@
 # Simple Markdown Mermaid Tool
 
+## Conservative EXE slimming (2026-10-25)
+
+Release EXE: 12,902,984 -> 12,875,387 bytes (about 27 KB / 0.21%).
+Only an unused Tcl test harness is excluded. The larger Python/Tcl/Tk runtimes and
+offline diagram resources are needed by actual features and remain embedded.
+Four native pickers, INI/Markdown restore, HTML export, packaged HTTP/resources and
+seven paired scoped performance checks passed in isolated copies. No browser
+visual/DPI or new PDF/PNG/JPG acceptance is claimed. See SELF_CHECK.md.
+
+
 ## Safe clean
 
 `scripts/clean_python.bat` removes allowlisted compiler/PyInstaller work files and .pyc/.pyo inside known __pycache__ folders. It never recursively purges build/obj or caches: EXE/INI/DLL/log/data/unknown files remain even there, and only empty directories are removed. `/?`, `-h` and `--help` do not delete anything. Codex verifies this automatically when creating/changing clean scripts.

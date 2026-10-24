@@ -1,5 +1,22 @@
 # AGENTS.md
 
+## Verified packaging size contract (2026-10-25)
+
+- Canonical source spec: scripts/build/MarkdownMermaidTool.spec. Generated work stays
+  under build/obj/pyinstaller; never treat the source spec as disposable.
+- Exclude only the reviewed tcl8/8.5/tcltest-2.5.7.tm test harness. Keep Tcl/Tk,
+  encodings/dialogs, Python/SSL/runtime DLLs, offline Mermaid/marked and licenses.
+- If package layout changes, fail closed and have Codex reassess the exact exclusion;
+  do not blanket-exclude modules or ask the user to run the audit manually.
+- Clean recognizes only exact internal .toc/PYZ/.pkg/base_library.zip names in this
+  tool's named work directory. Other package/archive files remain protected.
+- Codex invokes the shared clean verifier with -CheckPythonCaches
+  -PyInstallerName MarkdownMermaidTool plus nested/reparse/actual checks.
+- Build-close logic matches the full canonical EXE path, tries normal close, and
+  revalidates PID/start/path before fallback; never close foreign same-named copies.
+- Actual scope/raw results: SELF_CHECK.md and docs/verification/exe-slimming-20261025.json.
+
+
 ## File-only Python Clean
 
 Clean must preflight all cache/source paths before calling the companion `scripts/clean_intermediates.ps1`. Remove allowlisted compiler/PyInstaller files in build/obj and only .pyc/.pyo inside root/source/test/script __pycache__; never recursively purge obj/cache folders. Preserve EXE/INI/unknown files inside those folders; remove only empty directories. Keep both cleaner/helper when reusing this profile and run expanded preservation tests automatically.

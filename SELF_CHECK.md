@@ -1,5 +1,46 @@
 # SELF_CHECK.md
 
+## Verified EXE slimming 2026-10-25
+
+- Exact comparable EXE 12902984 -> 12875387 bytes (27597 saved).
+- Formal SHA: 0B53FA841A7BD75ADA4F7096289021488E554B87AF8B89D320BE253F9B1A3928.
+- Original pre-task delivery was 12903348 bytes; fresh same-toolchain baseline
+  is used for the comparison, not metadata from an older build.
+- PASS canonical scripts/build_exe.ps1 -CloseRunningTool $false; Python 3.13 /
+  PyInstaller 6.13.0, one-file/windowless, no new install requirement or UPX.
+- PASS archive comparison: 1000 -> 999 entries; only tcltest-2.5.7.tm omitted.
+  Its compressed size was 28007 bytes. No added entries; base_library.zip's ordering
+  differs but all 155 member payloads match. Every other archive payload matches.
+- PASS hash-matched owned parent/child processes, confirmed owned loopback listener,
+  embedded page/JS/CSS/Mermaid/marked resources, synthetic Markdown load, INI save/
+  reload, HTML-only export and identical exported HTML hashes.
+- PASS all four actual Tcl/Tk native file/folder pickers opened and canceled with
+  empty results. No mocked import, user INI, external browser or remote request.
+- PASS extracted actual build-close block: graceful exit 0 and bounded force fallback
+  (-1 for the synthetic sleep host); foreign same-named copy preserved in both cases.
+- PASS seven alternating AB/BA timing pairs after warmups and before-candidate
+  calibration. No concurrent compilation. Gate max(floor, 10% median, 3*MAD),
+  memory 5%; floors startup50/50-request-HTTP5/CPU16ms, memory1MiB.
+  - StartupMs: 6734.4750 -> 6687.9609; limit 8642.4750.
+  - PeakBytes: 39485440.0000 -> 39456768.0000; limit 41459302.0000.
+  - CpuMs: 2718.7500 -> 2781.2500; limit 3027.7500.
+  - WorkflowMs: 948.0713 -> 951.2688; limit 1103.0713.
+  Startup includes mandatory process/listener-ownership probe overhead, not browser
+  rendering. CPU and peak values sum the owned bootloader/server processes.
+- PASS revised exact-name/work-path clean: 28 protected fixtures plus source,
+  unknown .pyz/.pkg/.toc/other-location archives retained, known package/compiler
+  files removed; Python caches/help/idempotence/native and source junction checks.
+  Final actual clean: 1 additional compiler ZIP removed; all 8 protected actual
+  files, root INI hashes and source spec unchanged. The earlier classifier failure
+  and its 11-file compiler cleanup remain documented, not hidden.
+- PASS shared verifier default-native regression: 17 protected sentinels/source,
+  help/idempotence; no unrelated actual native clean rerun.
+- Raw numeric evidence: docs/verification/exe-slimming-20261025.json.
+- NOT RUN: browser visual/DPI/clean-PC/PDF/PNG/JPG rerun; unchanged payload evidence
+  reused. Long nested extraction fixture failed before timing, short test-owned
+  temporary paths used. This does not add general long-path support to the app.
+
+
 ## File-only Python clean follow-up (2026-10-21)
 
 - Changed scripts/clean.ps1, scripts/clean_python.bat and new companion clean_intermediates.ps1. Final cross-profile review found the earlier cleaner still purged whole build/obj/cache folders; replaced it with file allowlists and empty-directory-only removal.
