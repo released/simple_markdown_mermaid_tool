@@ -1,20 +1,5 @@
 # Simple Markdown Mermaid Tool
 
-## Conservative EXE slimming (2026-10-25)
-
-Release EXE: 12,902,984 -> 12,875,387 bytes (about 27 KB / 0.21%).
-Only an unused Tcl test harness is excluded. The larger Python/Tcl/Tk runtimes and
-offline diagram resources are needed by actual features and remain embedded.
-Four native pickers, INI/Markdown restore, HTML export, packaged HTTP/resources and
-seven paired scoped performance checks passed in isolated copies. No browser
-visual/DPI or new PDF/PNG/JPG acceptance is claimed. See SELF_CHECK.md.
-
-
-## Safe clean
-
-`scripts/clean_python.bat` removes allowlisted compiler/PyInstaller work files and .pyc/.pyo inside known __pycache__ folders. It never recursively purges build/obj or caches: EXE/INI/DLL/log/data/unknown files remain even there, and only empty directories are removed. `/?`, `-h` and `--help` do not delete anything. Codex verifies this automatically when creating/changing clean scripts.
-
-
 Local Markdown/Mermaid editor with live preview and export.
 
 ## Features
@@ -57,10 +42,6 @@ Then click `Generate`. The default output directory is `output`.
 
 ## Optional Build
 
-This project is the workspace Python **directory-layout** reference. Its browser
-UI and standard-library implementation are not mandatory for other Python tools.
-See workspace `#READ_ME_FIRST#/PROJECT_LAYOUT.md` for the shared convention.
-
 PyInstaller is used only for packaging. The source app itself uses the Python standard library.
 
 ```powershell
@@ -73,9 +54,7 @@ Output:
 build\MarkdownMermaidTool.exe
 ```
 
-Packaging intermediates and generated spec files are under
-`build\obj\pyinstaller`, not the repository root. Existing older `dist`/build
-outputs are not silently removed by this layout change.
+Packaging intermediates are stored under `build\obj\pyinstaller`.
 
 ## Clean
 
