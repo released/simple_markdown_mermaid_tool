@@ -326,3 +326,5 @@ button.primary:hover {
     border-bottom: 1px solid var(--line);
   }
 }
+
+.build-identity { text-align: right; overflow-wrap: anywhere; font-size: 0.85rem; color: #4b5563; }

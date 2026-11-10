@@ -30,6 +30,7 @@ pyz = PYZ(a.pure)
 exe = EXE(
     pyz, a.scripts, a.binaries, a.datas, [],
     name="MarkdownMermaidTool",
+    version=str(project_root / "scripts/build/version_info.generated.txt"),
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

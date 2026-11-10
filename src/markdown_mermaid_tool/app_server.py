@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import unquote, urlparse
 
+from .build_info import BUILD_LABEL, BUILD_VERSION, BUILD_DATETIME
 from .exporter import find_browser_executable, generate_outputs
 from .settings import (
     AppState,
@@ -90,6 +91,9 @@ def _make_handler(context: AppContext) -> type[BaseHTTPRequestHandler]:
         def do_GET(self) -> None:
             parsed = urlparse(self.path)
             path = unquote(parsed.path)
+            if path == "/api/build-info":
+                self._send_json({"label": BUILD_LABEL, "version": BUILD_VERSION, "built": BUILD_DATETIME})
+                return
             if path == "/api/state":
                 self._send_json(
                     {

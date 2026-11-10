@@ -1,0 +1,11 @@
+{
+  "publication_enabled": true,
+  "repository": "released/simple_markdown_mermaid_tool",
+  "visibility": "PUBLIC",
+  "branch": "main",
+  "readme_title": "Simple Markdown Mermaid Tool",
+  "identity_files": [
+    "README.md"
+  ],
+  "delivery_files": []
+}

@@ -1,11 +1,13 @@
 param(
-    [bool]$CloseRunningTool = $true
+    [bool]$CloseRunningTool = $true,
+    [string]$WorkDirectory = ''
 )
 
 $ErrorActionPreference = "Stop"
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 $exeName = "MarkdownMermaidTool"
 $workPath = Join-Path $root "build\obj\pyinstaller"
+if ($WorkDirectory) { $workPath = [IO.Path]::GetFullPath($WorkDirectory) }
 $buildSpec = Join-Path $PSScriptRoot "build\MarkdownMermaidTool.spec"
 $outputPath = Join-Path $root "build"
 
@@ -30,6 +32,8 @@ if ($CloseRunningTool) {
 
 Push-Location $root
 try {
+    & python (Join-Path $PSScriptRoot "prepare_build_identity.py") --module "src/markdown_mermaid_tool/build_info.py"
+    if ($LASTEXITCODE -ne 0) { throw "Build identity preparation failed." }
     New-Item -ItemType Directory -Force -Path $workPath | Out-Null
     python -m PyInstaller `
         --noconfirm `

@@ -253,3 +253,12 @@
     run(loadInitialState);
   });
 })();
+
+fetch('/api/build-info').then(response => {
+  if (!response.ok) throw new Error('Build information unavailable');
+  return response.json();
+}).then(info => {
+  const label = document.getElementById('buildIdentity');
+  label.textContent = info.label;
+  label.title = info.label + '\n' + info.built;
+}).catch(() => { document.getElementById('buildIdentity').textContent = 'Build information unavailable'; });
